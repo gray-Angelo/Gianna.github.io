@@ -58,10 +58,32 @@
 
 
   
+  
+  <div class="site-header-image">
+    <img id="originBg" width="100%" alt="Hike News" src="">
+  </div>
+
+  <div id="header-blur" class="site-header-image blur" style="position: absolute; top:0; height: 207px; min-height: 207px; min-width: 100%;">
+    <img id="blurBg" width="100%" style="top: 96%" alt="Hike News" src="">
+  </div>
+
+  <script>
+        var imgUrls = "css/images/pose01.jpg,https://source.unsplash.com/collection/954550/1920x1080,https://source.unsplash.com/collection/954550/1920x1081".split(",");
+        var random = Math.floor((Math.random() * imgUrls.length ));
+        if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+          document.getElementById("originBg").src=imgUrls[random];
+          document.getElementById("blurBg").src=imgUrls[random];
+        } else {
+          document.getElementById("originBg").src='/' + imgUrls[random];
+          document.getElementById("blurBg").src='/' + imgUrls[random];
+        }
+    </script>
+
+
 
 
 <header id="allheader" class="site-header" role="banner" 
-   >
+   style="width: 100%; position: absolute; top:0; background: rgba(255,255,255,.8);"  >
   <div class="clearfix container">
       <div class="site-branding">
 
@@ -123,19 +145,19 @@
             
                 <a href="#薰丽" title="薰丽" rel="1">薰丽</a>
             
-                <a href="#表海" title="表海" rel="2">表海</a>
-            
                 <a href="#vd" title="vd" rel="23">vd</a>
             
-                <a href="#nd" title="nd" rel="8">nd</a>
+                <a href="#表海" title="表海" rel="2">表海</a>
             
                 <a href="#碇薰" title="碇薰" rel="2">碇薰</a>
             
+                <a href="#nd" title="nd" rel="8">nd</a>
+            
                 <a href="#dn" title="dn" rel="14">dn</a>
             
-                <a href="#立桐" title="立桐" rel="1">立桐</a>
-            
                 <a href="#暗海" title="暗海" rel="1">暗海</a>
+            
+                <a href="#立桐" title="立桐" rel="1">立桐</a>
             
                 <a href="#嗣薰" title="嗣薰" rel="1">嗣薰</a>
             
@@ -1531,6 +1553,9 @@
 
 
     <!-- headerblur min height -->
+    
+      var headerblur = document.getElementById("header-blur");
+      headerblur.style.minHeight = window.getComputedStyle(document.getElementById("allheader"), null).height;
     
     
 </script>
